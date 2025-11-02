@@ -1,16 +1,15 @@
 import { useEffect } from "react";
 import { useState } from "react";
 
-export default function SearchForm({totalShows})
+export default function SearchForm({totalShows, shows, setShows})
 {
   const [input, setInput] = useState("");
-  const [shows, setShows] = useState(totalShows);
 
   const handleChange = (content) => {
 
     setInput(content.target.value); 
     console.log(input);
-    setShows(totalShows.map(show => show.name === input ? show : []));
+    setShows(totalShows.map(show => show?.name === input ? show : null));
     //console.log(shows)
 
   }

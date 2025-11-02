@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import SearchForm from "./SearchForm";
+import ShowsList from "./ShowsList";
 
 export default function APICall()
 {
@@ -33,7 +34,8 @@ export default function APICall()
 
     return(<>
     
-        <SearchForm totalShows = {shows} />
+        {/* <SearchForm totalShows = {shows} /> */}
+        <ShowsList totalShows = {shows} />
 
     </>)
 }
