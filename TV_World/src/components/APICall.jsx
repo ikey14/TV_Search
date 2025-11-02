@@ -3,7 +3,7 @@ import { useState } from "react";
 import SearchForm from "./SearchForm";
 import ShowsList from "./ShowsList";
 
-export default function APICall()
+export default function APICall({favShows, changeFavShows})
 {
     const [shows, setShows] = useState([]);
 
@@ -33,9 +33,9 @@ export default function APICall()
     }, [shows]);
 
     return(<>
-    
+
         {/* <SearchForm totalShows = {shows} /> */}
-        <ShowsList totalShows = {shows} />
+        <ShowsList totalShows = {shows} favShows = {favShows} changeFavShows = {changeFavShows} />
 
     </>)
 }

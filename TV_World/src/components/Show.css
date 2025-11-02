@@ -1,0 +1,12 @@
+.showName 
+{
+  margin-left: 10px;
+}
+
+.showImg {
+  max-width: 125px;   /* Set desired width */
+  max-height: 125px;  /* Set desired height */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+
+  margin-top: 22px;
+}

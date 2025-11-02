@@ -3,10 +3,22 @@ import { useState } from "react";
 import SearchForm from "./SearchForm";
 import Show from "./Show";
 
-export default function ShowsList({totalShows})
+export default function ShowsList({totalShows, favShows, changeFavShows})
 {
     const [shows, setShows] = useState(totalShows);
 
+    const AddFav = (id) => {
+        const newShow = totalShows.find(show => show.id === id);
+        if (newShow) 
+        {
+            // .some() returns true if there is already an object in the array that matches the condition
+            const alreadyFavorite = favShows.some(show => show.id === id);
+            if (!alreadyFavorite) 
+            {
+                changeFavShows([...favShows, newShow]);
+            }
+        }
+    }
 
     return(<>
     
@@ -16,17 +28,13 @@ export default function ShowsList({totalShows})
 
         <div className = "showsContainer">
         {shows.map((show) => (
-            // <ToDo 
-            //     key = {task.id} 
-            //     id = {task.id} 
-            //     taskText = {task.taskText} 
-            //     complete = {task.complete}
-            //     changeTaskStatus = {ChangeTaskStatus}
-            //     killTask = {KillTask}
-            // />
+
             <Show 
                 key = {show?.id}
-                name = {show?.name} 
+                id = {show?.id}
+                name = {show?.name}
+                imgSrc = {show?.image?.medium}
+                changeFavStatus = {AddFav}
             />
         ))}
     </div>

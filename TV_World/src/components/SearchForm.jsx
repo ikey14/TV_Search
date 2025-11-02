@@ -3,35 +3,37 @@ import { useState } from "react";
 
 export default function SearchForm({totalShows, shows, setShows})
 {
-  const [input, setInput] = useState("");
+  //const [input, setInput] = useState("");
 
   const handleChange = (content) => {
 
-    setInput(content.target.value); 
-    console.log(input);
-    setShows(totalShows.map(show => show?.name === input ? show : null));
-    //console.log(shows)
+    if(content.target.value != "")
+    {
+        //setInput(content.target.value);
+        //console.log(input);
+        //setShows(totalShows.map(show => show?.name === input ? show : null));
+        //console.log(shows)
+        const filteredShows = totalShows.filter(show => show?.name.toLowerCase().startsWith(content.target.value.toLowerCase()));
+        setShows(filteredShows);
+    }
+    else
+    {
+        const filteredShows = totalShows.filter(show => show?.name.toLowerCase().startsWith(" "));
+        setShows(filteredShows);
+    }
 
   }
 
   const handleSend = (content) => {
     content.preventDefault(); //no recarga pág.
-    // const newTask = {
-    //   //genera un id único llamando a uuidv4
-    //   id: uuidv4(),
-    //   taskText: input,
-    //   completed: false
-    // }
-    // setInput("");
-    // onFormSubmit(newTask) //onSubmit es una prop
   }
 
     // Logs the shows data when it updates
-    useEffect(() => {
+    // useEffect(() => {
 
-        console.log(shows);
+    //     console.log(shows);
 
-    }, [shows]);
+    // }, [shows]);
 
   return (<div>
     <form onSubmit = {handleSend} >
@@ -40,7 +42,7 @@ export default function SearchForm({totalShows, shows, setShows})
         type = 'text'
         placeholder = 'Show Name'
         //name = 'newTask'
-        value = {input}
+        //value = {input}
         onChange = {handleChange}
       />
     </form>
