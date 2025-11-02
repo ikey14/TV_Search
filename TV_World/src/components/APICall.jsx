@@ -26,11 +26,11 @@ export default function APICall({favShows, changeFavShows})
     }, []);
 
     // Logs the shows data when it updates
-    useEffect(() => {
+    // useEffect(() => {
 
-        console.log(shows);
+    //     console.log(shows);
 
-    }, [shows]);
+    // }, [shows]);
 
     return(<>
 

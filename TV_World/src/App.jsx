@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useEffect } from "react";
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -8,6 +9,22 @@ import FavsList from './components/FavsList'
 function App() {
   const [renderState, setRenderState] = useState(0)
   const [favShows, setFavShows] = useState([]);
+
+  useEffect(() => {
+
+    setFavShows(JSON.parse(localStorage.getItem("favs")));
+    console.log(JSON.parse(localStorage.getItem("favs")));
+    // localStorage.setItem("favs", JSON.stringify(favShows));
+    // console.log(JSON.parse(localStorage.getItem("favs")));
+
+  }, []);
+
+  // useEffect(() => {
+
+  //   localStorage.setItem("favs", JSON.stringify(favShows));
+  //   console.log(JSON.parse(localStorage.getItem("favs")));
+
+  // }, [favShows]);
 
   return (<>
 

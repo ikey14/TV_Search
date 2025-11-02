@@ -7,6 +7,13 @@ export default function FavsList({favShows, changeFavShows})
 {
     const RemoveFav = (id) => {changeFavShows(favShows.filter(show => show.id != id))}
 
+    useEffect(() => {
+
+        localStorage.setItem("favs", JSON.stringify(favShows));
+        console.log(JSON.parse(localStorage.getItem("favs")));
+
+    }, [favShows]);
+
     return(<>
 
         <div className = "showsContainer">
