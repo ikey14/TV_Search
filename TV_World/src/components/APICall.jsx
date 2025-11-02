@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import SearchForm from "./SearchForm";
 
 export default function APICall()
 {
@@ -12,7 +13,6 @@ export default function APICall()
     // Wait for response, when results are in put them in JSON format
     .then(response => response.json())
     // Since this is also promise based, we need to wait again.
-    // once we have the JSON, we take the important info of the first 10 elements
     .then(data => setShows(data))
     .catch(error => console.error(error));
 
@@ -21,7 +21,6 @@ export default function APICall()
     useEffect(() => {
 
         SaveRegister();
-        //console.log(shows);
 
     }, []);
 
@@ -31,4 +30,10 @@ export default function APICall()
         console.log(shows);
 
     }, [shows]);
+
+    return(<>
+    
+        <SearchForm totalShows = {shows} />
+
+    </>)
 }
