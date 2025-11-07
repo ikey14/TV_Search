@@ -10,3 +10,18 @@
 
   margin-top: 22px;
 }
+
+/* .showInfoPopup {
+  position: relative;
+  top: 100%;           
+  left: 0;
+  z-index: 10;
+  padding: 15px;
+  background: #2c2c2c;
+  color: #f8f8f8;
+  border: 2px solid #555;
+  border-radius: 8px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.16);
+  min-width: 250px;
+  max-width: 320px;
+} */
