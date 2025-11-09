@@ -24,6 +24,9 @@ export default function FavsList({favShows, changeFavShows})
                 id = {show?.id}
                 name = {show?.name}
                 imgSrc = {show?.image?.medium}
+                genres = {show?.genres}
+                desc = {show?.summary}
+                rating = {show?.rating?.average}
                 changeFavStatus = {RemoveFav}
             />
         ))}

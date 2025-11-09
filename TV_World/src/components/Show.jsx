@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import Modal from 'react-modal';
 
 import "./Show.css";
+import Modal from "./Modal";
 
-export default function Show({id, name, imgSrc, changeFavStatus})
+export default function Show({id, name, imgSrc, genres, desc, rating, changeFavStatus})
 {
     const [showWindow, setShowWindow] = useState(false);
 
@@ -15,9 +15,9 @@ export default function Show({id, name, imgSrc, changeFavStatus})
         }
     };
 
-    const closeModal = () => setShowWindow(false);
+    // const closeModal = () => setShowWindow(false);
 
-    Modal.setAppElement('#root');
+    // Modal.setAppElement('#root');
 
     return(<div style = {{ display: 'flex', alignItems: 'center' }} onClick = {handleShowClick}>
 
@@ -25,7 +25,16 @@ export default function Show({id, name, imgSrc, changeFavStatus})
         <p className = "showName">{name}</p>
         <button onClick = {() => changeFavStatus(id)}>❤️</button>
 
-        <Modal
+        {showWindow && <Modal 
+          setShowWindow = {setShowWindow}
+          showName = {name}
+          showImgSrc = {imgSrc}
+          showDesc = {desc}
+          showGenre = {genres}
+          showRat = {rating}
+          />}
+
+        {/* <Modal
         isOpen = {showWindow}
         onRequestClose = {closeModal}
         ariaHideApp = {false}
@@ -34,7 +43,7 @@ export default function Show({id, name, imgSrc, changeFavStatus})
             <h2>Hello</h2>
             <button onClick={closeModal}>X</button>
             <div>I am a modal</div>
-      </Modal>
+      </Modal> */}
         
         {/* {showWindow && (
         <div className = "showInfoPopup">
