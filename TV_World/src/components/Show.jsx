@@ -8,20 +8,26 @@ export default function Show({id, name, imgSrc, genres, desc, rating, changeFavS
 {
     const [showWindow, setShowWindow] = useState(false);
 
-    const handleShowClick = (e) => {
-        // Prevent clicks on the button from triggering the info popup
-        if (e.target.tagName.toLowerCase() !== "button") {
-        setShowWindow(true);
-        }
-    };
+    useEffect(() => {
+
+      console.log(genres);
+
+    }, []);
+
+    // const handleShowClick = (e) => {
+    //     // Prevent clicks on the button from triggering the info popup
+    //     if (e.target.tagName.toLowerCase() !== "button") {
+    //     setShowWindow(true);
+    //     }
+    // };
 
     // const closeModal = () => setShowWindow(false);
 
     // Modal.setAppElement('#root');
 
-    return(<div style = {{ display: 'flex', alignItems: 'center' }} onClick = {handleShowClick}>
+    return(<div style = {{ display: 'flex', alignItems: 'center'}} >
 
-        <img className = "showImg" src = {imgSrc} alt = {imgSrc}/>
+        <img className = "showImg" src = {imgSrc} alt = {imgSrc} onClick = {() => setShowWindow(true)}/>
         <p className = "showName">{name}</p>
         <button onClick = {() => changeFavStatus(id)}>❤️</button>
 
@@ -30,7 +36,7 @@ export default function Show({id, name, imgSrc, genres, desc, rating, changeFavS
           showName = {name}
           showImgSrc = {imgSrc}
           showDesc = {desc}
-          showGenre = {genres}
+          showGenres = {genres}
           showRat = {rating}
           />}
 

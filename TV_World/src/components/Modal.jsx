@@ -1,10 +1,17 @@
+import { useEffect } from "react";
 import "./Modal.css";
 
 export default function Modal({ setShowWindow, showName, showImgSrc, showGenres, showDesc, showRat }) 
 {
+    useEffect(() => {
+    
+        console.log(showGenres);
+    
+    }, []);
+
   return(<div className = "modalBackground">
       <div className = "modalContainer">
-        <div className = "titleCloseBtn">
+        <div className = "closeBtn">
           <button onClick = {() => {setShowWindow(false);}}>X</button>
         </div>
         <div className = "title">
@@ -13,12 +20,14 @@ export default function Modal({ setShowWindow, showName, showImgSrc, showGenres,
         <div>
             <img src = {showImgSrc} className = "modalImg"/>
         </div>
-        <div className = "body">
-          <h3>{showGenres}</h3>
-          {showDesc}
+        <div className = "upperBody">
+            {showGenres.map((genre) => (<p className = "genre">{genre}</p>))}
+        </div>
+        <div className = "body" >
+          <div dangerouslySetInnerHTML={{ __html: showDesc }}></div>
         </div>
         <div className = "footer">
-          <p>{showRat}</p>
+          <p className = "rating">{showRat} / 10</p>
         </div>
       </div>
     </div>);
