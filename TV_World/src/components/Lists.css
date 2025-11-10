@@ -1,0 +1,21 @@
+.showsContainer
+{
+  display: flex;
+  flex-direction: row;  /* Items arranged from left to right */
+  align-items: center;  /* Vertically center items, optional */
+  gap: 1rem;            /* Space between items, adjust as needed */
+  flex-wrap: wrap;
+}
+
+.fixedHeaderForm {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  margin-top: 5rem;
+  padding: 1rem 0;
+  display: flex;
+  align-Items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}

@@ -3,6 +3,8 @@ import { useState } from "react";
 import SearchForm from "./SearchForm";
 import Show from "./Show";
 
+import "./Lists.css";
+
 export default function ShowsList({totalShows, favShows, changeFavShows})
 {
     const [shows, setShows] = useState(totalShows);
@@ -20,9 +22,9 @@ export default function ShowsList({totalShows, favShows, changeFavShows})
         }
     }
 
-    return(<>
+    return(<div>
     
-        <div>
+        <div className = "fixedHeaderForm">
             <SearchForm totalShows = {totalShows} shows = {shows} setShows = {setShows} />
         </div>
 
@@ -42,5 +44,5 @@ export default function ShowsList({totalShows, favShows, changeFavShows})
         ))}
     </div>
     
-    </>)
+    </div>)
 }

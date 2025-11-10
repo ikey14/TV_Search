@@ -3,6 +3,8 @@ import { useState } from "react";
 import SearchForm from "./SearchForm";
 import Show from "./Show";
 
+import "./Lists.css";
+
 export default function FavsList({favShows, changeFavShows})
 {
     const RemoveFav = (id) => {changeFavShows(favShows.filter(show => show.id != id))}

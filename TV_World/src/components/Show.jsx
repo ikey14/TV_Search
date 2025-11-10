@@ -25,7 +25,7 @@ export default function Show({id, name, imgSrc, genres, desc, rating, changeFavS
 
     // Modal.setAppElement('#root');
 
-    return(<div style = {{ display: 'flex', alignItems: 'center'}} >
+    return(<div className = "showContainer">
 
         <img className = "showImg" src = {imgSrc} alt = {imgSrc} onClick = {() => setShowWindow(true)}/>
         <p className = "showName">{name}</p>
@@ -39,27 +39,6 @@ export default function Show({id, name, imgSrc, genres, desc, rating, changeFavS
           showGenres = {genres}
           showRat = {rating}
           />}
-
-        {/* <Modal
-        isOpen = {showWindow}
-        onRequestClose = {closeModal}
-        ariaHideApp = {false}
-        shouldCloseOnOverlayClick = {true}
-        >
-            <h2>Hello</h2>
-            <button onClick={closeModal}>X</button>
-            <div>I am a modal</div>
-      </Modal> */}
-        
-        {/* {showWindow && (
-        <div className = "showInfoPopup">
-          <button onClick={closeInfo}>X</button>
-          {/* You can render richer info here (e.g. image, description, etc.)}
-          <h3>{name}</h3>
-          <img src = {imgSrc} alt = {imgSrc} style = {{ width: 80, height: 80 }} />
-          <p>Additional information goes here.</p>
-        </div>
-      )} */}
 
     </div>)
 }

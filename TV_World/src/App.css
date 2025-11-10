@@ -40,3 +40,19 @@
 .read-the-docs {
   color: #888;
 }
+
+
+
+
+.fixedHeader {
+  position: fixed;
+  margin-top: 1rem;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding: 1rem 0;            /* adjust as needed for spacing */
+  display: flex;
+  align-Items: center;
+  justify-content: center;    /* or space-between, left, etc. */
+  gap: 1.5rem;                /* controls spacing between items */
+}

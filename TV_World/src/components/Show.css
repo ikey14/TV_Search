@@ -13,6 +13,15 @@
   margin-top: 22px;
 }
 
+.showContainer
+{
+  flex: 1;
+  min-width: 150;
+  display: 'flex';
+  align-Items: 'center';
+}
+
+
 /* .showInfoPopup {
   position: relative;
   top: 100%;           

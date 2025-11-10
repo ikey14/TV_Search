@@ -9,7 +9,17 @@ export default function Modal({ setShowWindow, showName, showImgSrc, showGenres,
     
     }, []);
 
-  return(<div className = "modalBackground">
+    const handleCloseModal = (e) => {
+        // console.log("handleCloseModal Executed");
+        // console.log(e.target.className);
+        if (e.target.className.toLowerCase() == "modalbackground") 
+        {
+            // console.log("handleCloseModal if statement Executed");
+            setShowWindow(false);
+        }
+    }
+
+  return(<div className = "modalBackground" onClick = {handleCloseModal}>
       <div className = "modalContainer">
         <div className = "closeBtn">
           <button onClick = {() => {setShowWindow(false);}}>X</button>

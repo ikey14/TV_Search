@@ -28,7 +28,7 @@ function App() {
 
   return (<>
 
-    <div style={{ display: 'flex', alignItems: 'center' }}>
+    <div className = "fixedHeader">
         <button onClick = {() => setRenderState(0)}>SEARCH</button>
         <button onClick = {() => setRenderState(1)}>FAVOURITES</button>
     </div>
