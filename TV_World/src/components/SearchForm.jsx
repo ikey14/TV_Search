@@ -1,9 +1,24 @@
 import { useEffect } from "react";
 import { useState } from "react";
 
-export default function SearchForm({totalShows, shows, setShows})
+export default function SearchForm({totalShows, setShows})
 {
   //const [input, setInput] = useState("");
+
+  const showGenres = ["Drama", "Comedy", "Action", "Thriller", "Fantasy", "Crime",
+     "Romance", "Horror", "Anime", "Science-Fiction", "Family", "Supernatural",
+     "Medical", "Legal", "Western"];
+
+  function isNum(str)
+  {
+    return !isNaN(Number(str));
+  }
+
+  const isGenre = (str) => {
+    let isGenre = false;
+    showGenres.map(genre => str.toLowerCase() === genre.toLowerCase()? isGenre = true : isGenre = isGenre);
+    return isGenre;
+  }
 
   const handleChange = (content) => {
 
@@ -13,7 +28,16 @@ export default function SearchForm({totalShows, shows, setShows})
         //console.log(input);
         //setShows(totalShows.map(show => show?.name === input ? show : null));
         //console.log(shows)
-        const filteredShows = totalShows.filter(show => show?.name.toLowerCase().startsWith(content.target.value.toLowerCase()));
+        let filteredShows;
+        
+        isNum(content.target.value)? 
+          filteredShows = totalShows.filter(show => show?.id == (content.target.value))
+        :
+          isGenre(content.target.value)?
+            filteredShows = totalShows.filter(show => show?.genres.includes(content.target.value))
+          :
+            filteredShows = totalShows.filter(show => show?.name.toLowerCase().startsWith(content.target.value.toLowerCase()))
+        
         setShows(filteredShows);
     }
     else
