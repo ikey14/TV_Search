@@ -7,30 +7,36 @@ export default function APICall({favShows, changeFavShows})
 {
     const [shows, setShows] = useState([]);
 
-    const SaveRegister = () => {
+    const GetShows = () => {
 
-    // Fetch info from API url
-    fetch("https://api.tvmaze.com/shows")
-    // Wait for response, when results are in put them in JSON format
-    .then(response => response.json())
-    // Since this is also promise based, we need to wait again.
-    .then(data => setShows(data))
-    .catch(error => console.error(error));
+        fetch("https://api.tvmaze.com/shows")
+        .then(response => response.json())
+        //Filter data so that only the fields that are relevant for searching and rendering are present
+        .then(data => {
+            const filteredShows = data.map(show => ({
+            id: show.id,
+            name: show.name,
+            img: show.image?.medium,
+            genres: show.genres
+            }));
+            setShows(filteredShows);
+        })
+        .catch(error => console.error(error));
 
     }
 
     useEffect(() => {
 
-        SaveRegister();
+        GetShows();
 
     }, []);
 
-    // Logs the shows data when it updates
-    // useEffect(() => {
+    //Logs the shows data when it updates
+    useEffect(() => {
 
-    //     console.log(shows);
+        console.log(shows);
 
-    // }, [shows]);
+    }, [shows]);
 
     return(<>
 

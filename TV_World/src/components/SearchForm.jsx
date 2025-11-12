@@ -24,18 +24,17 @@ export default function SearchForm({totalShows, setShows})
 
     if(content.target.value != "")
     {
-        //setInput(content.target.value);
-        //console.log(input);
-        //setShows(totalShows.map(show => show?.name === input ? show : null));
-        //console.log(shows)
         let filteredShows;
         
         isNum(content.target.value)? 
+          //Searches by ID (strict)
           filteredShows = totalShows.filter(show => show?.id == (content.target.value))
         :
           isGenre(content.target.value)?
+            //Searches by genre (Must type it with the right upper and lower case letters)
             filteredShows = totalShows.filter(show => show?.genres.includes(content.target.value))
           :
+            //Regular search, AKA search by name
             filteredShows = totalShows.filter(show => show?.name.toLowerCase().startsWith(content.target.value.toLowerCase()))
         
         setShows(filteredShows);
