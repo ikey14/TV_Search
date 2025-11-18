@@ -22,10 +22,16 @@ export default function ShowsList({totalShows, favShows, changeFavShows})
         }
     }
 
+    useEffect(() => {
+
+        setShows(totalShows);
+
+    }, []);
+
     return(<div>
     
         <div className = "fixedHeaderForm">
-            <SearchForm totalShows = {totalShows} shows = {shows} setShows = {setShows} />
+            <SearchForm totalShows = {totalShows} setShows = {setShows} />
         </div>
 
         <div className = "showsContainer">

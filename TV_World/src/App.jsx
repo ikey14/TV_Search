@@ -26,17 +26,17 @@ function App() {
 
   // }, [favShows]);
 
-  return (<>
+  return (<body className = {renderState != 1? "bodyBlueGrad" : "bodyRedGrad"}>
 
     <div className = "fixedHeader">
-        <button onClick = {() => setRenderState(0)}>SEARCH</button>
-        <button onClick = {() => setRenderState(1)}>FAVOURITES</button>
+        <button onClick = {() => setRenderState(0)} className = "searchButton">SEARCH</button>
+        <button onClick = {() => setRenderState(1)} className = "favButton">FAVOURITES</button>
     </div>
 
     {renderState === 0 && <APICall favShows = {favShows} changeFavShows = {setFavShows} />}
     {renderState === 1 && <FavsList favShows = {favShows} changeFavShows = {setFavShows} />}
   
-  </>)
+  </body>)
 }
 
 export default App

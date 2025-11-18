@@ -14,6 +14,12 @@ export default function SearchForm({totalShows, setShows})
     return !isNaN(Number(str));
   }
 
+  useEffect(() => {
+
+    setShows(totalShows);
+
+  }, []);
+
   const isGenre = (str) => {
     let isGenre = false;
     showGenres.map(genre => str.toLowerCase() === genre.toLowerCase()? isGenre = true : isGenre = isGenre);
@@ -41,7 +47,7 @@ export default function SearchForm({totalShows, setShows})
     }
     else
     {
-        const filteredShows = totalShows.filter(show => show?.name.toLowerCase().startsWith(" "));
+        const filteredShows = totalShows;
         setShows(filteredShows);
     }
 
@@ -59,9 +65,9 @@ export default function SearchForm({totalShows, setShows})
     // }, [shows]);
 
   return (<div>
-    <form onSubmit = {handleSend} >
+    <form onSubmit = {handleSend}>
       <input
-        //className = 'inputToDo'
+        // className = "bg-linear-to-br from-blue-800 via-black to-white"
         type = 'text'
         placeholder = 'Show Name'
         //name = 'newTask'

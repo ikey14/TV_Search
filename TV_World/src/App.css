@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  /* background-image: linear-gradient(to bottom right, blue, white); */
 }
 
 .logo {
@@ -16,6 +17,28 @@
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.searchButton
+{
+  background-image: linear-gradient(to bottom right, rgba(0, 0, 255, 0.3), rgb(0, 0, 0, 0.3));
+}
+
+.searchButton:hover
+{
+  background-image: linear-gradient(to bottom right, rgba(0, 0, 255, 0.75), rgba(50, 50, 50, 0.75));
+  filter: drop-shadow(0 0 1em #4a4a4a4a);
+}
+
+.favButton
+{
+  background-image: linear-gradient(to bottom right, rgba(255, 0, 0, 0.3), rgb(0, 0, 0, 0.3));
+}
+
+.favButton:hover
+{
+  background-image: linear-gradient(to bottom right, rgba(255, 0, 0, 0.75), rgba(50, 50, 50, 0.75));
+  filter: drop-shadow(0 0 1em #4a4a4a4a);
 }
 
 @keyframes logo-spin {
@@ -41,9 +64,6 @@
   color: #888;
 }
 
-
-
-
 .fixedHeader {
   position: fixed;
   margin-top: 1rem;
@@ -55,4 +75,24 @@
   align-Items: center;
   justify-content: center;    /* or space-between, left, etc. */
   gap: 1.5rem;                /* controls spacing between items */
+}
+
+.bodyBlueGrad {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom right, rgba(0, 0, 255, 0.15), rgba(0, 0, 0, 0.15), rgba(255, 255, 255, 0.15));
+  background-color: black;
+}
+
+.bodyRedGrad {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom right, rgba(255, 0, 0, 0.15), rgba(0, 0, 0, 0.15), rgba(255, 255, 255, 0.15));
+  background-color: black;
 }
